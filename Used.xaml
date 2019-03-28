@@ -1,0 +1,66 @@
+﻿<Window x:Class="Poradnik.Used"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poradnik"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="Used" Height="1080" Width="1920" ResizeMode="CanResizeWithGrip"
+        Icon ="icon.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FFF97777" Offset="1"/>
+                <GradientStop Color="#FFFFC1C1" Offset="0.65"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="button" Content="X" HorizontalAlignment="Left" Width="34" Height="30" Margin="1886,-6,-8,1048" Click="Button_Click" Background="Red" BorderBrush="Red" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <ComboBox x:Name="comboBox" VerticalAlignment="Bottom" SelectionChanged="ComboBox_SelectionChanged" Opacity="0.3" Background="{x:Null}" Margin="0,-14,1792,1056" Height="30" RenderTransformOrigin="0.492,0.5">
+            <ComboBoxItem Content="Ustawienia" Selected="Settings"></ComboBoxItem>
+            <ComboBoxItem Content="Kontakt"></ComboBoxItem>
+            <ComboBoxItem Content="O aplikacji"></ComboBoxItem>
+            <ComboBoxItem Content="Autorzy"></ComboBoxItem>
+            <ComboBoxItem Content="Ekran"></ComboBoxItem>
+            <ComboBoxItem Content="Audio"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="comboBox2" VerticalAlignment="Bottom" SelectionChanged="ComboBox_SelectionChanged" Opacity="0.3" Background="{x:Null}" Margin="253,-14,1542,1056" Height="30" RenderTransformOrigin="0.492,0.5" >
+            <ComboBoxItem Content="Ustawienia"></ComboBoxItem>
+            <ComboBoxItem Content="Kontakt"></ComboBoxItem>
+            <ComboBoxItem Content="O aplikacji"></ComboBoxItem>
+            <ComboBoxItem Content="Autorzy"></ComboBoxItem>
+            <ComboBoxItem Content="Ekran"></ComboBoxItem>
+            <ComboBoxItem Content="Audio"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="comboBox1" VerticalAlignment="Bottom" SelectionChanged="ComboBox_SelectionChanged" Opacity="0.3" Margin="128,-14,1667,1056" Height="30" RenderTransformOrigin="0.492,0.5" >
+            <ComboBoxItem Content="Ustawienia" ></ComboBoxItem>
+            <ComboBoxItem Content="Kontakt"></ComboBoxItem>
+            <ComboBoxItem Content="O aplikacji"></ComboBoxItem>
+            <ComboBoxItem Content="Autorzy"></ComboBoxItem>
+            <ComboBoxItem Content="Ekran"></ComboBoxItem>
+            <ComboBoxItem Content="Audio"></ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="button1" Content="_" HorizontalAlignment="Left" Margin="1851.7,-6,0,1051.8" VerticalAlignment="Bottom" Width="34" Height="30" FontSize="18" Click="Button1_Click" RenderTransformOrigin="0.5,0.5"></Button>
+        <WebBrowser x:Name="webBrowser" Source="https://www.google.com/" Margin="253,162,228,316" />
+        <Button x:Name="button2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="253,127,0,0" Click="Button2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="35">
+            <Button.Background>
+                <ImageBrush ImageSource="back.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
