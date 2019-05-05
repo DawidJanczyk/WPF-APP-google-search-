@@ -9,6 +9,29 @@
         WindowStyle="None"
         Title="Used" Height="1080" Width="1920" ResizeMode="CanResizeWithGrip"
         Icon ="icon.png">
+          <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,7 +43,7 @@
                 <GradientStop Color="#FFFFC1C1" Offset="0.65"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="button" Content="X" HorizontalAlignment="Left" Width="34" Height="30" Margin="1886,-6,-8,1048" Click="Button_Click" Background="Red" BorderBrush="Red" Foreground="White" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="button" Style= "{Static Resource}" Content="X" HorizontalAlignment="Left" Width="34" Height="30" Margin="1886,-6,-8,1048" Click="Button_Click" Background="Red" BorderBrush="Red" Foreground="White" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -54,9 +77,9 @@
             <ComboBoxItem Content="Ekran"></ComboBoxItem>
             <ComboBoxItem Content="Audio"></ComboBoxItem>
         </ComboBox>
-        <Button x:Name="button1" Content="_" HorizontalAlignment="Left" Margin="1851.7,-6,0,1051.8" VerticalAlignment="Bottom" Width="34" Height="30" FontSize="18" Click="Button1_Click" RenderTransformOrigin="0.5,0.5"></Button>
+        <Button x:Name="button1" Style= "{Static Resource}" Content="_" HorizontalAlignment="Left" Margin="1851.7,-6,0,1051.8" VerticalAlignment="Bottom" Width="34" Height="30" FontSize="18" Click="Button1_Click" RenderTransformOrigin="0.5,0.5"></Button>
         <WebBrowser x:Name="webBrowser" Source="https://www.google.com/" Margin="253,162,228,316" />
-        <Button x:Name="button2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="253,127,0,0" Click="Button2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="35">
+        <Button x:Name="button2" Style= "{Static Resource}" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="253,127,0,0" Click="Button2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="35">
             <Button.Background>
                 <ImageBrush ImageSource="back.png" Stretch="Uniform"/>
             </Button.Background>
