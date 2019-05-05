@@ -9,7 +9,29 @@
         WindowStyle="ToolWindow"
         Title="First Application" Height="450" Width="800"
         Icon="icon.png">
-
+     <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+    </Window.Resources>
     <Grid>
 
         <Grid.Background>
@@ -18,7 +40,7 @@
                 <GradientStop Color="#FFAE00FF" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="282,194,0,0" VerticalAlignment="Top" Width="218" Click="Button_Click" Foreground="White" Height="56" FontSize="36" FontFamily="Calibri">
+        <Button x:Name="button" Style="{Static Resource MyButton}" Content="Start" HorizontalAlignment="Left" Margin="282,194,0,0" VerticalAlignment="Top" Width="218" Click="Button_Click" Foreground="White" Height="56" FontSize="36" FontFamily="Calibri">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF7C00E4"/>
